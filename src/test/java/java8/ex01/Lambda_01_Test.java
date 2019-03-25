@@ -7,8 +7,10 @@ import static org.hamcrest.Matchers.hasProperty;
 import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.assertThat;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
 
+import org.apache.commons.codec.digest.DigestUtils;
 import org.junit.Test;
 
 import java8.data.Data;
@@ -89,7 +91,8 @@ public class Lambda_01_Test {
         // TODO Pour obtenir le hash d'un mot, utiliser la méthode DigestUtils.sha512Hex(mot)
         PersonPredicate predicate = new PersonPredicate() {
         	public boolean test(Person p) {
-        		return p.getAge() > 49 && p.getPassword().equals("test");
+        		return p.getAge() > 49 && p.getPassword().equals("test") && passwordSha512Hex.equals(DigestUtils.sha512Hex("test"));
+        		
         	}
         };
         List<Person> result = filter(personList, predicate);
