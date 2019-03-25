@@ -47,6 +47,7 @@ public class Method_02_Test {
         	String str;
         	str = "DaoA["+l.size()+" persons]";
         	return str; 
+
         }
     }
     // end::DaoA[]

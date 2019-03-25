@@ -27,8 +27,7 @@ public class Method_01_Test {
         		sumAge += p.getAge();
         	}
         	return sumAge;
-        }
-        
+        }     
     }
     // end::IDao[]
 
