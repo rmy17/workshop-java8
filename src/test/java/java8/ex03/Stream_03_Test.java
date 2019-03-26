@@ -10,6 +10,8 @@ import org.junit.Test;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
+
 import static java.util.stream.Collectors.*;
 
 import static org.hamcrest.Matchers.*;
@@ -26,7 +28,7 @@ public class Stream_03_Test {
         List<Customer> customers = new Data().getCustomers();
 
         // TODO construire une chaîne contenant les prénoms des clients triés et séparé par le caractère "|"
-        String result = null;
+        String result = customers.stream().map(Customer::getFirstname).collect(Collectors.joining("|"));
 
         assertThat(result, is("Alexandra|Cyril|Johnny|Marion|Sophie"));
     }
