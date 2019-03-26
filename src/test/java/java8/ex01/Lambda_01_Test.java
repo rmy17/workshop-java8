@@ -53,6 +53,9 @@ public class Lambda_01_Test {
         		return p.getAge() >= 18;
         	}
         };
+        //lambda
+       // PersonPredicate predicate = p -> p.getAge() >=18;
+        
         List<Person> result = filter(personList, predicate);
 
         assertThat(result.size(), is(83));

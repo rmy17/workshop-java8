@@ -32,6 +32,8 @@ public class Lambda_02_Test {
     	}
         return l;
     }
+    
+    
     // end::map[]
 
 
@@ -43,6 +45,7 @@ public class Lambda_02_Test {
 
         // TODO transformer la liste de personnes en liste de comptes
         // TODO tous les objets comptes ont un solde à 100 par défaut
+        /*
         PersonToAccountMapper mapper = new PersonToAccountMapper() {
         	Account a = new Account();
         	public Account map(Person p) {
@@ -51,6 +54,14 @@ public class Lambda_02_Test {
         		return a;
         	}
    
+        };
+        */
+        //lambda 
+        PersonToAccountMapper mapper = p -> {
+        	Account a = new Account();
+        	a.setOwner(p);
+        	a.setBalance(100);
+        	return a;
         };
         List<Account> result = map(personList, mapper);
         assertThat(result, hasSize(personList.size()));
